@@ -25,6 +25,10 @@ class CrearVacante extends Component
         'imagen' => 'required'
     ];
 
+    public function crearVacante(){
+        $datos = $this->validate();
+    }
+
     public function render()
     {
         $salarios = Salario::all();
