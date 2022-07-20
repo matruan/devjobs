@@ -6,7 +6,7 @@
         id="titulo"
         class="block mt-1 w-full" 
         type="text"
-        name="titulo"
+        wire:model="titulo"
         :value="old('titulo')"
         placeholder="Titulo vacante" 
       />
@@ -17,7 +17,7 @@
       <x-label for="salario" :value="__('Salario mensual')" />
       <select 
         id="salario"
-        name="salario"
+        wire:model="salario"
         class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full">
         <option>-- Seleccione --</option>
         @foreach ($salarios as $salario)
@@ -34,7 +34,7 @@
         <x-label for="categoria" :value="__('Categoría')" />
         <select 
           id="categoria"
-          name="categoria"
+          wire:model="categoria"
           class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full">
         
         <option>-- Seleccione --</option>
@@ -51,7 +51,7 @@
           id="empresa"
           class="block mt-1 w-full" 
           type="text"
-          name="empresa"
+          wire:model="empresa"
           :value="old('empresa')"
           placeholder="Empresa: ej. Netflix, Uber, Shopify" 
         />
@@ -64,7 +64,7 @@
           id="ultimo_dia"
           class="block mt-1 w-full" 
           type="date"
-          name="empresa"
+          wire:model="ultimo_dia"
           :value="old('ultimo_dia')"
         />
       </div>
@@ -73,7 +73,7 @@
         <x-label for="ultimo_dia" :value="__('Descripción Puesto')" />
   
         <textarea 
-          name="descripcion"
+          wire:model="descripcion"
           placeholder="Descripción general del puesto, experiencia" 
           class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full h-72">
         </textarea>
@@ -87,7 +87,7 @@
           id="imagen"
           class="block mt-1 w-full" 
           type="file"
-          name="imagen"
+          wire:model="imagen"
         />
       </div>
 
