@@ -36,8 +36,12 @@
           id="categoria"
           name="categoria"
           class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full">
-        </select>
         
+        <option>-- Seleccione --</option>
+        @foreach ($categorias as $categoria)
+          <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
+        @endforeach
+      </select>
       </div>
 
       <div>
