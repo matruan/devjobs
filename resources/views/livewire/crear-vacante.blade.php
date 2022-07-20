@@ -29,7 +29,10 @@
         @endforeach
 
       </select>
-      
+
+      @error('salario')
+        <livewire:mostrar-alerta :message="$message" />
+      @enderror
       
     </div>
 
@@ -46,6 +49,11 @@
           <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
         @endforeach
       </select>
+
+      @error('categoria')
+        <livewire:mostrar-alerta :message="$message" />
+      @enderror
+
       </div>
 
       <div>
@@ -59,6 +67,10 @@
           :value="old('empresa')"
           placeholder="Empresa: ej. Netflix, Uber, Shopify" 
         />
+
+        @error('empresa')
+          <livewire:mostrar-alerta :message="$message" />
+        @enderror
       </div>
   
       <div>
@@ -71,16 +83,22 @@
           wire:model="ultimo_dia"
           :value="old('ultimo_dia')"
         />
+        @error('ultimo_dia')
+          <livewire:mostrar-alerta :message="$message" />
+        @enderror
       </div>
 
       <div>
-        <x-label for="ultimo_dia" :value="__('Descripción Puesto')" />
+        <x-label for="descripcion" :value="__('Descripción Puesto')" />
   
         <textarea 
           wire:model="descripcion"
           placeholder="Descripción general del puesto, experiencia" 
           class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full h-72">
         </textarea>
+        @error('descripcion')
+          <livewire:mostrar-alerta :message="$message" />
+        @enderror
       </div>
 
 
@@ -93,6 +111,9 @@
           type="file"
           wire:model="imagen"
         />
+        @error('imagen')
+          <livewire:mostrar-alerta :message="$message" />
+        @enderror
       </div>
 
       <x-button>
