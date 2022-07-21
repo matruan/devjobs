@@ -21,7 +21,7 @@
       <x-label for="salario" :value="__('Salario mensual')" />
       <select 
         id="salario"
-        wire:model="salario"
+        wire:model="salario_id"
         class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full">
         <option>-- Seleccione --</option>
         @foreach ($salarios as $salario)
@@ -41,7 +41,7 @@
         <x-label for="categoria" :value="__('Categoría')" />
         <select 
           id="categoria"
-          wire:model="categoria"
+          wire:model="categoria_id"
           class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full">
         
         <option>-- Seleccione --</option>
