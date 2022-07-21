@@ -36,6 +36,9 @@ return new class extends Migration
         // We have to execute the relevant actions in each migration and not others. We cannot drop 
         // the entire table because the table is generated in the first migration (create_vacantes_table)
         Schema::table('vacantes', function (Blueprint $table) {
+            $table->dropForeign('vacantes_user_id_foreign');
+            $table->dropForeign('vacantes_salario_id_foreign');
+            $table->dropForeign('vacantes_categoria_id_foreign');
             $table->dropColumn(['titulo', 'salario_id', 'categoria_id', 'empresa', 'ultimo_dia', 'descripcion', 'imagen', 'publicado', 'user_id']);
         });
     }
