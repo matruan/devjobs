@@ -113,6 +113,12 @@
           accept="image/*"
         />
 
+        <div class="my-5 w-80">
+            <x-label for="imagen" :value="__('Imagen Actual')"></x-label>
+
+            <img src="{{ asset('storage/vacantes/' . $imagen) }}" alt="{{ 'Imagen Vacante' . $titulo }}">
+        </div>
+
         {{-- <div class="my-5 w-80">
           @if($imagen)
             Imagen:
@@ -126,7 +132,7 @@
       </div>
 
       <x-button>
-        Crear vacante
+        Guardar cambios
       </x-button>
       
 </form>
