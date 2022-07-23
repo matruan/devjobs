@@ -113,12 +113,12 @@
           accept="image/*"
         />
 
-        <div class="my-5 w-80">
+        {{-- <div class="my-5 w-80">
           @if($imagen)
             Imagen:
             <img src="{{ $imagen->temporaryUrl() }}">
           @endif
-        </div>
+        </div> --}}
 
         @error('imagen')
           <livewire:mostrar-alerta :message="$message" />
