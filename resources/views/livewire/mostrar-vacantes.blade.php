@@ -1,4 +1,5 @@
-<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+<div>
+  <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
     @forelse ($vacantes as $vacante)
       <div class="p-6 bg-white border-b border-gray-200 md:flex md:justify-between md:items-center">
         <div class="space-y-3">
@@ -34,8 +35,34 @@
     @empty
       <p class="p-3 text-center text-sm text-gray-600">No hay vacantes que mostrar</p>
     @endforelse
+  </div>
+
+  <div class="mt-10">
+    {{ $vacantes->links() }}
+  </div>
 </div>
 
-<div class="mt-10">
-  {{ $vacantes->links() }}
-</div>
+@push('scripts')
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    Swal.fire({
+      title: '¿Eliminar vacante?',
+      text: "Una vacante eliminada no se puede recuperar",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, ¡Eliminar!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
+  </script>
+@endpush
