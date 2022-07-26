@@ -34,12 +34,15 @@ class AplicarVacante extends Component
         $this->vacante->candidatos()->create([
             'user_id' => auth()->user()->id,
             'cv' => $datos['cv'],
-            
+
         ]);
 
         // create notification and send email
 
         // show message to the user saying everything is ok
+        session()->flash('mensaje', 'Tu CV se envió correctamente. ¡Mucha suerte!');
+
+        return redirect()->back();
     }
 
     public function render()
