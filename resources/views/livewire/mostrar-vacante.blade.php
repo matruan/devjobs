@@ -53,5 +53,8 @@
     </div>
   @endguest
 
+  @cannot('create', App\Models\Vacante::class)
+    <livewire:aplicar-vacante />
+  @endcannot
 
 </div>
