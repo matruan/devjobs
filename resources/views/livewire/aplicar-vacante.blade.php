@@ -6,5 +6,9 @@
         <x-label for="cv" :value="__('Curriculum')" />
         <x-input id="cv" type="file" accept=".pdf" class="block mt-1 w-full" />
     </div>
+
+    <x-button class="my-5">
+      {{ __('Aplicar') }}    
+    </x-button>
   </form>
 </div>
