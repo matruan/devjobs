@@ -28,7 +28,17 @@ class HomeVacantes extends Component
         // When termino is not null then the function (the query) is executed
         $vacantes = Vacante::when($this->termino, function($query) {
           $query->where('titulo', 'LIKE', "%" . $this->termino . "%" );
-        })->paginate(20);
+        })
+        ->when($this->termino, function($query) {
+            $query->orWhere('empresa', 'LIKE', "%" . $this->termino . "%" );
+        })
+        ->when($this->categoria, function($query) {
+            $query->where('categoria_id', $this->categoria);
+        })
+        ->when($this->salario, function($query) {
+            $query->where('salario_id', $this->salario);
+        })        
+        ->paginate(20);
 
         return view('livewire.home-vacantes', [
             'vacantes' => $vacantes

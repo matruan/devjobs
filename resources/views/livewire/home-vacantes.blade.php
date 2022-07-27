@@ -12,8 +12,10 @@
                             <a class="text-3xl font-extrabold text-gray-600" href="{{ route('vacantes.show', $vacante->id) }}">
                                 {{ $vacante->titulo }}
                             </a>
-                            <p class="text-base text-gray-600 mb-1"> {{$vacante->empresa }} </p>
-                            <p class="font-bold text-xs text-gray-600">
+                            <p class="text-base text-gray-600 mb-1"> {{ $vacante->empresa }} </p>
+                            <p class="text-xs font-bold text-gray-600 mb-1"> {{ $vacante->categoria->categoria }} </p>
+                            <p class="text-xs font-bold text-gray-600 mb-1"> {{ $vacante->salario->salario }} </p>
+                            <p class="text-xs font-bold text-gray-600">
                                 Último día para aplicar:
                                 <span class="font-normal">{{ $vacante->ultimo_dia->format('d/m/Y') }}</span>
                             </p>
@@ -30,6 +32,9 @@
                 @empty
                     <p class="p-3 text-center text-sm text-gray-600">No hay vacantes aún</p>
                 @endforelse
+            </div>
+            <div class="mt-10">
+                {{ $vacantes->links() }}
             </div>
         </div>
     </div>
